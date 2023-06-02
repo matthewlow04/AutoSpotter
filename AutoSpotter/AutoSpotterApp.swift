@@ -11,7 +11,7 @@ import SwiftUI
 struct AutoSpotterApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
         }
     }
 }
