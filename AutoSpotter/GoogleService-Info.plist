@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>222749648415-u71fmke7rf3a168j59t92m8rslldekis.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.222749648415-u71fmke7rf3a168j59t92m8rslldekis</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBbG7oA74q39DwJ00CiovJe_q87-darBa4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>222749648415</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.MatthewLow.AutoSpotter</string>
+	<key>PROJECT_ID</key>
+	<string>autospotter-90def</string>
+	<key>STORAGE_BUCKET</key>
+	<string>autospotter-90def.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:222749648415:ios:c91b7c43e278718110d72a</string>
+</dict>
+</plist>
