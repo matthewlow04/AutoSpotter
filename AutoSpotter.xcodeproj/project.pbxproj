@@ -20,7 +20,7 @@
 		A0DA928E2A28F4500028E82F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0DA928D2A28F4500028E82F /* Assets.xcassets */; };
 		A0DA92912A28F4500028E82F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0DA92902A28F4500028E82F /* Preview Assets.xcassets */; };
 		A0DA92992A28F6B80028E82F /* Styling.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DA92982A28F6B80028E82F /* Styling.swift */; };
-		A0DA929D2A28FCCC0028E82F /* AddCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DA929C2A28FCCC0028E82F /* AddCarView.swift */; };
+		A0DA929D2A28FCCC0028E82F /* AddCarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DA929C2A28FCCC0028E82F /* AddCarImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +38,7 @@
 		A0DA928D2A28F4500028E82F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0DA92902A28F4500028E82F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A0DA92982A28F6B80028E82F /* Styling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styling.swift; sourceTree = "<group>"; };
-		A0DA929C2A28FCCC0028E82F /* AddCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarView.swift; sourceTree = "<group>"; };
+		A0DA929C2A28FCCC0028E82F /* AddCarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +75,7 @@
 				A07F39F62A295F320094DD4F /* MockCar.swift */,
 				A0DA928B2A28F4500028E82F /* HomeView.swift */,
 				A07F39FC2A2963F50094DD4F /* BackgroundView.swift */,
-				A0DA929C2A28FCCC0028E82F /* AddCarView.swift */,
+				A0DA929C2A28FCCC0028E82F /* AddCarImageView.swift */,
 				A07F39F22A295DB40094DD4F /* CreateCarView.swift */,
 				A07F39E82A28FEC60094DD4F /* ClassificationModel.swift */,
 				A07F39F42A295E8C0094DD4F /* CarModel.swift */,
@@ -184,7 +184,7 @@
 				A07F39FD2A2963F50094DD4F /* BackgroundView.swift in Sources */,
 				A07F39EF2A290E560094DD4F /* ImageReize.swift in Sources */,
 				A07F39F52A295E8C0094DD4F /* CarModel.swift in Sources */,
-				A0DA929D2A28FCCC0028E82F /* AddCarView.swift in Sources */,
+				A0DA929D2A28FCCC0028E82F /* AddCarImageView.swift in Sources */,
 				A0DA928A2A28F4500028E82F /* AutoSpotterApp.swift in Sources */,
 				A07F39F32A295DB40094DD4F /* CreateCarView.swift in Sources */,
 			);

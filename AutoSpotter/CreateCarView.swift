@@ -45,8 +45,7 @@ struct CreateCarView: View {
             }
             .navigationTitle("Add New Car").foregroundColor(Color.red)
             
-        }
-        
+        }   
     }
 }
 

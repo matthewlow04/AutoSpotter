@@ -31,7 +31,7 @@ struct HomeView: View {
         
 
          
-        }
+        }.accentColor(.black)
        
      
        
@@ -42,10 +42,10 @@ struct HomeView: View {
     
     var playButton: some View {
         
-        NavigationLink(destination: AddCarView()) {
+        NavigationLink(destination: AddCarImageView()) {
             HStack{
                 Text("Spot A Car")
-                Image(systemName: "play")
+                Image(systemName: "camera")
             }
         
         }
@@ -56,7 +56,7 @@ struct HomeView: View {
         NavigationLink(destination: Text("My Cars")) {
             HStack{
                 Text("My Garage")
-                Image(systemName: "play")
+                Image(systemName: "car.fill")
             }
         
         }
