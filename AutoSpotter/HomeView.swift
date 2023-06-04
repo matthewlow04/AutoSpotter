@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    var userId: String
     var body: some View {
  
         NavigationView{
@@ -65,6 +66,6 @@ struct HomeView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(userId: "")
     }
 }

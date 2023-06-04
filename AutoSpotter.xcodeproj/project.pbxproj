@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A00095012A2BF9F1001AA76C /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00095002A2BF9F1001AA76C /* TestView.swift */; };
 		A07F39E92A28FEC60094DD4F /* ClassificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F39E82A28FEC60094DD4F /* ClassificationModel.swift */; };
 		A07F39EB2A2904C40094DD4F /* CarRecognition.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = A07F39EA2A2904C40094DD4F /* CarRecognition.mlpackage */; };
 		A07F39ED2A290A140094DD4F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F39EC2A290A140094DD4F /* ImagePicker.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A00095002A2BF9F1001AA76C /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		A07F39E82A28FEC60094DD4F /* ClassificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassificationModel.swift; sourceTree = "<group>"; };
 		A07F39EA2A2904C40094DD4F /* CarRecognition.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; name = CarRecognition.mlpackage; path = ../../../CarRecognition.mlpackage; sourceTree = "<group>"; };
 		A07F39EC2A290A140094DD4F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			children = (
 				A0DA92892A28F4500028E82F /* AutoSpotterApp.swift */,
 				A0F0B58D2A2BA82C00BF960A /* LoginView.swift */,
+				A00095002A2BF9F1001AA76C /* TestView.swift */,
 				A07F39F62A295F320094DD4F /* MockCar.swift */,
 				A0DA928B2A28F4500028E82F /* HomeView.swift */,
 				A07F39FC2A2963F50094DD4F /* BackgroundView.swift */,
@@ -202,6 +205,7 @@
 				A07F39F72A295F320094DD4F /* MockCar.swift in Sources */,
 				A07F39EB2A2904C40094DD4F /* CarRecognition.mlpackage in Sources */,
 				A07F39ED2A290A140094DD4F /* ImagePicker.swift in Sources */,
+				A00095012A2BF9F1001AA76C /* TestView.swift in Sources */,
 				A0DA928C2A28F4500028E82F /* HomeView.swift in Sources */,
 				A07F39FD2A2963F50094DD4F /* BackgroundView.swift in Sources */,
 				A07F39EF2A290E560094DD4F /* ImageReize.swift in Sources */,

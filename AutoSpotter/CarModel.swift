@@ -8,8 +8,9 @@
 import Foundation
 
 
-struct Car{
+struct Car: Identifiable{
     var name: String
     var date: Date
     var notes: String
+    var id: UUID
 }
