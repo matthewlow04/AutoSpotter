@@ -8,9 +8,9 @@
 import Foundation
 
 
-struct Car: Identifiable{
+struct Car: Hashable{
     var name: String
-    var date: Date
     var notes: String
-    var id: UUID
+    //var date: Date
+    //var id: UUID
 }

@@ -43,7 +43,7 @@ struct HomeView: View {
     
     var playButton: some View {
         
-        NavigationLink(destination: AddCarImageView()) {
+        NavigationLink(destination: AddCarImageView().environmentObject(DataManager())) {
             HStack{
                 Text("Spot A Car")
                 Image(systemName: "camera")
@@ -54,7 +54,7 @@ struct HomeView: View {
     
     var garageButton: some View {
         
-        NavigationLink(destination: Text("My Cars")) {
+        NavigationLink(destination: GarageView().environmentObject(DataManager())) {
             HStack{
                 Text("My Garage")
                 Image(systemName: "car.fill")

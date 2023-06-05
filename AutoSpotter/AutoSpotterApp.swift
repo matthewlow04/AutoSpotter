@@ -9,6 +9,7 @@ import SwiftUI
 import Firebase
 @main
 struct AutoSpotterApp: App {
+    @StateObject var dataManager = DataManager()
     
     init(){
         FirebaseApp.configure()
@@ -17,6 +18,7 @@ struct AutoSpotterApp: App {
     var body: some Scene {
         WindowGroup {
             LoginView()
+                .environmentObject(dataManager)
             //HomeView()
         }
     }

@@ -8,5 +8,5 @@
 import Foundation
 
 class mockCar{
-    let mockCar = Car(name: "Civic", date: Date.now, notes: "", id: UUID())
+    //let mockCar = Car(name: "Civic", date: Date.now, notes: "", id: UUID())
 }

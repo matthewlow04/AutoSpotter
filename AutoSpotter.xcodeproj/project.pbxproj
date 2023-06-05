@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A00095012A2BF9F1001AA76C /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00095002A2BF9F1001AA76C /* TestView.swift */; };
+		A00095032A2C4486001AA76C /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00095022A2C4486001AA76C /* DataManager.swift */; };
+		A00095052A2C46A1001AA76C /* GarageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00095042A2C46A1001AA76C /* GarageView.swift */; };
 		A07F39E92A28FEC60094DD4F /* ClassificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F39E82A28FEC60094DD4F /* ClassificationModel.swift */; };
 		A07F39EB2A2904C40094DD4F /* CarRecognition.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = A07F39EA2A2904C40094DD4F /* CarRecognition.mlpackage */; };
 		A07F39ED2A290A140094DD4F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F39EC2A290A140094DD4F /* ImagePicker.swift */; };
@@ -31,6 +33,8 @@
 
 /* Begin PBXFileReference section */
 		A00095002A2BF9F1001AA76C /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		A00095022A2C4486001AA76C /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		A00095042A2C46A1001AA76C /* GarageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageView.swift; sourceTree = "<group>"; };
 		A07F39E82A28FEC60094DD4F /* ClassificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassificationModel.swift; sourceTree = "<group>"; };
 		A07F39EA2A2904C40094DD4F /* CarRecognition.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; name = CarRecognition.mlpackage; path = ../../../CarRecognition.mlpackage; sourceTree = "<group>"; };
 		A07F39EC2A290A140094DD4F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
@@ -89,10 +93,12 @@
 				A07F39F62A295F320094DD4F /* MockCar.swift */,
 				A0DA928B2A28F4500028E82F /* HomeView.swift */,
 				A07F39FC2A2963F50094DD4F /* BackgroundView.swift */,
+				A00095042A2C46A1001AA76C /* GarageView.swift */,
 				A0DA929C2A28FCCC0028E82F /* AddCarImageView.swift */,
 				A07F39F22A295DB40094DD4F /* CreateCarView.swift */,
 				A07F39E82A28FEC60094DD4F /* ClassificationModel.swift */,
 				A07F39F42A295E8C0094DD4F /* CarModel.swift */,
+				A00095022A2C4486001AA76C /* DataManager.swift */,
 				A07F39EA2A2904C40094DD4F /* CarRecognition.mlpackage */,
 				A0DA92972A28F6AE0028E82F /* Tools */,
 				A0DA928D2A28F4500028E82F /* Assets.xcassets */,
@@ -200,11 +206,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0DA92992A28F6B80028E82F /* Styling.swift in Sources */,
+				A00095032A2C4486001AA76C /* DataManager.swift in Sources */,
 				A0F0B5922A2BA91600BF960A /* TextfieldPlaceholder.swift in Sources */,
 				A07F39E92A28FEC60094DD4F /* ClassificationModel.swift in Sources */,
 				A07F39F72A295F320094DD4F /* MockCar.swift in Sources */,
 				A07F39EB2A2904C40094DD4F /* CarRecognition.mlpackage in Sources */,
 				A07F39ED2A290A140094DD4F /* ImagePicker.swift in Sources */,
+				A00095052A2C46A1001AA76C /* GarageView.swift in Sources */,
 				A00095012A2BF9F1001AA76C /* TestView.swift in Sources */,
 				A0DA928C2A28F4500028E82F /* HomeView.swift in Sources */,
 				A07F39FD2A2963F50094DD4F /* BackgroundView.swift in Sources */,
