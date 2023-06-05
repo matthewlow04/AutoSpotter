@@ -29,8 +29,9 @@ class DataManager: ObservableObject{
                     let data = document.data()
                     let notes = data["notes"] as? String ?? ""
                     let name = data["name"] as? String ?? ""
+                    let location = data["location"] as? String ?? "Unknown location"
 
-                    let car = Car(name: name, notes:notes)
+                    let car = Car(name: name, notes:notes, location:location)
                     
                     self.cars.append(car)
                 }
@@ -38,10 +39,10 @@ class DataManager: ObservableObject{
         }
     }
     
-    func addCar(carModel: String, carNotes: String){
+    func addCar(carModel: String, carNotes: String, carLocation: String){
         let db = Firestore.firestore()
         let ref = db.collection("Cars").document(carModel)
-        ref.setData(["name":carModel, "notes":carNotes]){ error in
+        ref.setData(["name":carModel, "notes":carNotes, "location":carLocation]){ error in
             if let error = error{
                 print(error.localizedDescription)
             }

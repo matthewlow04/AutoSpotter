@@ -11,6 +11,7 @@ import Foundation
 struct Car: Hashable{
     var name: String
     var notes: String
+    var location: String
     //var date: Date
     //var id: UUID
 }

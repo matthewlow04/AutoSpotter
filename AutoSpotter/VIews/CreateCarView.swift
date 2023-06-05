@@ -10,6 +10,7 @@ import SwiftUI
 struct CreateCarView: View {
     @State var name: String
     @State var notes = ""
+    @State var location = ""
     @State var showingAlert = false
     @EnvironmentObject var dataManager: DataManager
     var body: some View {
@@ -26,6 +27,15 @@ struct CreateCarView: View {
                 }
                 Section{
                     HStack{
+                        Text("Location: ")
+                        TextField("Location spotted", text: $location)
+                            .foregroundColor(Color.red).opacity(1)
+                    }
+                }header: {
+                    Text("NOTES")
+                }
+                Section{
+                    HStack{
                         Text("Notes: ")
                         TextField("Add custom notes", text: $notes)
                             .foregroundColor(Color.red).opacity(1)
@@ -35,8 +45,8 @@ struct CreateCarView: View {
                 }
                 Section{
                     Button("Add Car") {
-                        dataManager.addCar(carModel: name, carNotes: notes)
-                        dataManager.cars.append(Car(name: name, notes: notes))
+                        dataManager.addCar(carModel: name, carNotes: notes, carLocation: location)
+                        dataManager.cars.append(Car(name: name, notes: notes, location: location))
                         showingAlert = true
                     }
                     .alert("Car saved", isPresented: $showingAlert){
