@@ -12,7 +12,15 @@ struct GarageView: View {
     var body: some View {
         NavigationView{
             List(dataManager.cars, id: \.self){ car in
-                Text(car.name)
+                NavigationLink(destination: CarProfileView(currentCar: car)){
+                    HStack{
+                        VStack(alignment: .leading, spacing: 6){
+                            Text((car.name))
+                                .bold()
+                        }
+                       
+                    }
+                }
             }
             .navigationTitle("Garage")
         }
