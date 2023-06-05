@@ -14,6 +14,8 @@ struct LoginView: View {
     @State private var userIsLoggedIn = false
     @State private var signUpAlert = false
     @State private var username = ""
+    @State private var errorShowing = false
+    @State private var errorMessage = ""
     @AppStorage("uid") var userID: String = ""
     
     var body: some View {
@@ -76,6 +78,9 @@ struct LoginView: View {
             .alert("User with email address: \(username) created", isPresented: $signUpAlert, actions: {
                 Button("OK", role: .cancel) {}
             })
+            .alert(errorMessage, isPresented: $errorShowing, actions: {
+                Button("OK", role: .cancel) {}
+            })
             .frame(width: 300)
            
 //            .onAppear{
@@ -110,7 +115,9 @@ struct LoginView: View {
     func register(){
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if error != nil{
-                print(error!.localizedDescription)
+                errorMessage = error!.localizedDescription
+                errorShowing = true
+
             }
             if let result = result{
                 signUpAlert = true
@@ -124,7 +131,8 @@ struct LoginView: View {
     func login(){
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             if error != nil{
-                print(error!.localizedDescription)
+                errorMessage = error!.localizedDescription
+                errorShowing = true
             }
             
             if let result = result {
