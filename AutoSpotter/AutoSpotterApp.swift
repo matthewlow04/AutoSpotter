@@ -6,12 +6,20 @@
 //
 
 import SwiftUI
-
+import Firebase
 @main
 struct AutoSpotterApp: App {
+    @StateObject var dataManager = DataManager()
+    
+    init(){
+        FirebaseApp.configure()
+    }
+    
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            LoginView()
+                .environmentObject(dataManager)
+            //HomeView()
         }
     }
 }

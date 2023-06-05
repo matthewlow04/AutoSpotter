@@ -67,7 +67,7 @@ struct AddCarImageView: View{
                                 }
                                 .buttonStyle(HomeButtonStyle())
                                 NavigationLink{
-                                    CreateCarView(name: classificationLabel)
+                                    CreateCarView(name: classificationLabel).environmentObject(DataManager())
                                 }label: {
                                     HStack{
                                         Text("Add Car")

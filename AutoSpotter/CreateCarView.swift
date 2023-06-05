@@ -11,7 +11,7 @@ struct CreateCarView: View {
     @State var name: String
     @State var notes = ""
     @State var showingAlert = false
-    
+    @EnvironmentObject var dataManager: DataManager
     var body: some View {
         NavigationView{
             Form{
@@ -35,7 +35,9 @@ struct CreateCarView: View {
                 }
                 Section{
                     Button("Add Car") {
-                        
+                        dataManager.addCar(carModel: name, carNotes: notes)
+                        dataManager.cars.append(Car(name: name, notes: notes))
+                        showingAlert = true
                     }
                     .alert("Car saved", isPresented: $showingAlert){
                         Button("OK", role: .cancel) {}

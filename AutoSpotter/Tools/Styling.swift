@@ -24,3 +24,11 @@ struct HomeButtonStyle: ButtonStyle{
             .cornerRadius(10)
     }
 }
+
+struct textButtonStyle: ButtonStyle{
+    func makeBody(configuration: Configuration) -> some View{
+        configuration.label
+            .bold()
+            .foregroundColor(.white)
+    }
+}
