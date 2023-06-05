@@ -9,10 +9,14 @@
 
 🔥 Firebase is used for user authentication allowing users to store the info of their favourite cars they spot to their accounts using Firestore.
 
+## Login and Signup
+https://github.com/matthewlow04/AutoSpotter/assets/105395794/52a0a26c-71e0-4c59-9edd-bfb98404a456
 
+## Add Car
+https://github.com/matthewlow04/AutoSpotter/assets/105395794/f5c22feb-10ac-4cde-a999-0afe0ca52785
 
-
-
+## View Cars
+https://github.com/matthewlow04/AutoSpotter/assets/105395794/4d74de4e-063b-4849-8fb2-6518d033f53c
 
 
 
