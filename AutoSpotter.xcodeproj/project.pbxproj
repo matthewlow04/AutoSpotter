@@ -68,6 +68,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A00095062A2D944B001AA76C /* VIews */ = {
+			isa = PBXGroup;
+			children = (
+				A00095002A2BF9F1001AA76C /* TestView.swift */,
+				A0DA929C2A28FCCC0028E82F /* AddCarImageView.swift */,
+				A07F39F22A295DB40094DD4F /* CreateCarView.swift */,
+				A07F39FC2A2963F50094DD4F /* BackgroundView.swift */,
+				A00095042A2C46A1001AA76C /* GarageView.swift */,
+				A0DA928B2A28F4500028E82F /* HomeView.swift */,
+				A0F0B58D2A2BA82C00BF960A /* LoginView.swift */,
+			);
+			path = VIews;
+			sourceTree = "<group>";
+		};
+		A00095072A2D947A001AA76C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A07F39F42A295E8C0094DD4F /* CarModel.swift */,
+				A07F39E82A28FEC60094DD4F /* ClassificationModel.swift */,
+				A00095022A2C4486001AA76C /* DataManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		A0DA927D2A28F4500028E82F = {
 			isa = PBXGroup;
 			children = (
@@ -87,18 +111,10 @@
 		A0DA92882A28F4500028E82F /* AutoSpotter */ = {
 			isa = PBXGroup;
 			children = (
+				A00095072A2D947A001AA76C /* Models */,
+				A00095062A2D944B001AA76C /* VIews */,
 				A0DA92892A28F4500028E82F /* AutoSpotterApp.swift */,
-				A0F0B58D2A2BA82C00BF960A /* LoginView.swift */,
-				A00095002A2BF9F1001AA76C /* TestView.swift */,
 				A07F39F62A295F320094DD4F /* MockCar.swift */,
-				A0DA928B2A28F4500028E82F /* HomeView.swift */,
-				A07F39FC2A2963F50094DD4F /* BackgroundView.swift */,
-				A00095042A2C46A1001AA76C /* GarageView.swift */,
-				A0DA929C2A28FCCC0028E82F /* AddCarImageView.swift */,
-				A07F39F22A295DB40094DD4F /* CreateCarView.swift */,
-				A07F39E82A28FEC60094DD4F /* ClassificationModel.swift */,
-				A07F39F42A295E8C0094DD4F /* CarModel.swift */,
-				A00095022A2C4486001AA76C /* DataManager.swift */,
 				A07F39EA2A2904C40094DD4F /* CarRecognition.mlpackage */,
 				A0DA92972A28F6AE0028E82F /* Tools */,
 				A0DA928D2A28F4500028E82F /* Assets.xcassets */,
