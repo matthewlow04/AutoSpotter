@@ -12,6 +12,9 @@ struct Car: Hashable{
     var name: String
     var notes: String
     var location: String
+    var rating: Int
+    var date: Date
+    var isFavourite: Bool
     //var date: Date
     //var id: UUID
 }

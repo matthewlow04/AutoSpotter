@@ -30,8 +30,11 @@ class DataManager: ObservableObject{
                     let notes = data["notes"] as? String ?? ""
                     let name = data["name"] as? String ?? ""
                     let location = data["location"] as? String ?? "Unknown location"
-
-                    let car = Car(name: name, notes:notes, location:location)
+                    let rating = data["rating"] as? Int ?? 0
+                    let date = data["date"] as? Timestamp ?? Timestamp(date: Date.now)
+                    let fav = data["isFavourite"] as? Bool ?? false
+                    
+                    let car = Car(name: name, notes:notes, location:location, rating: rating, date: date.dateValue(), isFavourite: fav)
                     
                     self.cars.append(car)
                 }
@@ -39,10 +42,10 @@ class DataManager: ObservableObject{
         }
     }
     
-    func addCar(carModel: String, carNotes: String, carLocation: String){
+    func addCar(carModel: String, carNotes: String, carLocation: String, rating: Int, date: Date){
         let db = Firestore.firestore()
         let ref = db.collection("Cars").document(carModel)
-        ref.setData(["name":carModel, "notes":carNotes, "location":carLocation]){ error in
+        ref.setData(["name":carModel, "notes":carNotes, "location":carLocation, "rating": rating, "date": Timestamp(date: date), "isFavourite": false]){ error in
             if let error = error{
                 print(error.localizedDescription)
             }

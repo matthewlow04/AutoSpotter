@@ -64,11 +64,11 @@ struct LoginView: View {
                 
                 
                 
-                signUpButton
+                loginButton
                     .buttonStyle(HomeButtonStyle())
                     .padding(.top)
                     .offset(y:100)
-                loginButton
+                signUpButton
                     .buttonStyle(textButtonStyle())
                     .offset(y:110)
                     
@@ -99,7 +99,7 @@ struct LoginView: View {
         Button{
             register()
         } label:{
-            Text("Sign Up")
+            Text("Don't have an account? Sign up!")
         }
     }
     
@@ -107,7 +107,7 @@ struct LoginView: View {
         Button{
             login()
         } label:{
-            Text("Already have an account? Sign in")
+            Text("Login")
         }
         
     }

@@ -54,32 +54,38 @@ struct AddCarImageView: View{
                             isShowingImagePicker = true
                         }
                         .buttonStyle(HomeButtonStyle())
-                        if selectedImage != nil{
-                            VStack(){
-                                Button("Evaluate"){
-                                    let resizedImage = selectedImage!.resize(size: CGSize(width: 224, height: 224))
-                                    let output = try? self.model.prediction(data: buffer(from: resizedImage)!)
-                                    
-                                    if let output = output{
-                                        classificationLabel = output.classLabel
-                                    }
-                                    
+                      
+                        VStack{
+                            Button("Evaluate"){
+                                let resizedImage = selectedImage!.resize(size: CGSize(width: 224, height: 224))
+                                let output = try? self.model.prediction(data: buffer(from: resizedImage)!)
+                                
+                                if let output = output{
+                                    classificationLabel = output.classLabel
                                 }
-                                .buttonStyle(HomeButtonStyle())
-                                NavigationLink{
-                                    CreateCarView(name: classificationLabel).environmentObject(DataManager())
-                                }label: {
-                                    HStack{
-                                        Text("Add Car")
-                                        Image(systemName: "car.fill")
-                                    }
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.white)
-                                   
-                                }
-                                .offset(y: 170)
-
+                                
                             }
+                            .disabled(selectedImage == nil)
+                            .opacity(selectedImage == nil ? 0.5: 1)
+                            .buttonStyle(HomeButtonStyle())
+                            
+                            NavigationLink{
+                                CreateCarView(name: classificationLabel).environmentObject(DataManager())
+                            }label: {
+                                HStack{
+                                    Text("Add Car")
+                                    Image(systemName: "car.fill")
+                                }
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                               
+                               
+                            }
+                            .disabled(selectedImage == nil)
+                            .opacity(selectedImage == nil ? 0.5: 1)
+                            .offset(y: 170)
+
+                        
                         }
                      
                     }.sheet(isPresented: $isShowingImagePicker) {

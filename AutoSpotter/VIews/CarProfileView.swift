@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CarProfileView: View {
-    var currentCar: Car
+    @State var currentCar: Car
     var body: some View {
         ScrollView{
            
@@ -19,7 +19,10 @@ struct CarProfileView: View {
                         .resizable()
                         .scaledToFit()
                     
-                    favoriteIcon    
+                    favoriteIcon
+                        .onTapGesture {
+                            currentCar.isFavourite.toggle()
+                        }
                 }
                 locationView
                     .padding()
@@ -36,7 +39,7 @@ struct CarProfileView: View {
     }
     
     @ViewBuilder var favoriteIcon: some View{
-        Image(systemName: "heart.fill")
+        Image(systemName: currentCar.isFavourite ? "heart.fill" : "heart")
             .foregroundColor(Color.white)
             .padding()
             .background(Color.red)

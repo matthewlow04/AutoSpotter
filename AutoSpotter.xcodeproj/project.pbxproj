@@ -11,6 +11,7 @@
 		A00095032A2C4486001AA76C /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00095022A2C4486001AA76C /* DataManager.swift */; };
 		A00095052A2C46A1001AA76C /* GarageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00095042A2C46A1001AA76C /* GarageView.swift */; };
 		A00095092A2E7742001AA76C /* CarProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00095082A2E7742001AA76C /* CarProfileView.swift */; };
+		A05375E72AFD132600F71FF8 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05375E62AFD132600F71FF8 /* DateFormatter.swift */; };
 		A07F39E92A28FEC60094DD4F /* ClassificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F39E82A28FEC60094DD4F /* ClassificationModel.swift */; };
 		A07F39EB2A2904C40094DD4F /* CarRecognition.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = A07F39EA2A2904C40094DD4F /* CarRecognition.mlpackage */; };
 		A07F39ED2A290A140094DD4F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F39EC2A290A140094DD4F /* ImagePicker.swift */; };
@@ -37,6 +38,7 @@
 		A00095022A2C4486001AA76C /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		A00095042A2C46A1001AA76C /* GarageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageView.swift; sourceTree = "<group>"; };
 		A00095082A2E7742001AA76C /* CarProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarProfileView.swift; sourceTree = "<group>"; };
+		A05375E62AFD132600F71FF8 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		A07F39E82A28FEC60094DD4F /* ClassificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassificationModel.swift; sourceTree = "<group>"; };
 		A07F39EA2A2904C40094DD4F /* CarRecognition.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; name = CarRecognition.mlpackage; path = ../../../CarRecognition.mlpackage; sourceTree = "<group>"; };
 		A07F39EC2A290A140094DD4F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				A0F0B5912A2BA91600BF960A /* TextfieldPlaceholder.swift */,
 				A07F39EE2A290E560094DD4F /* ImageReize.swift */,
 				A0DA92982A28F6B80028E82F /* Styling.swift */,
+				A05375E62AFD132600F71FF8 /* DateFormatter.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 				A0F0B5922A2BA91600BF960A /* TextfieldPlaceholder.swift in Sources */,
 				A07F39E92A28FEC60094DD4F /* ClassificationModel.swift in Sources */,
 				A07F39F72A295F320094DD4F /* MockCar.swift in Sources */,
+				A05375E72AFD132600F71FF8 /* DateFormatter.swift in Sources */,
 				A00095092A2E7742001AA76C /* CarProfileView.swift in Sources */,
 				A07F39EB2A2904C40094DD4F /* CarRecognition.mlpackage in Sources */,
 				A07F39ED2A290A140094DD4F /* ImagePicker.swift in Sources */,

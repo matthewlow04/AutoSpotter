@@ -18,6 +18,14 @@ struct GarageView: View {
                             Text((car.name))
                                 .bold()
                         }
+                        
+                        VStack(alignment: .trailing){
+                            Text("Spotted: ")
+                            Text("\(formattedDate(date: car.date))")
+                            
+                        }
+                        .foregroundStyle(Color.gray)
+                        .italic()
                        
                     }
                 }

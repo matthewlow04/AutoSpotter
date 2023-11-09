@@ -1,3 +1,4 @@
+
 //
 //  AutoSpotterApp.swift
 //  AutoSpotter
@@ -23,3 +24,4 @@ struct AutoSpotterApp: App {
         }
     }
 }
+

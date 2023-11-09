@@ -11,6 +11,7 @@ struct CreateCarView: View {
     @State var name: String
     @State var notes = ""
     @State var location = ""
+    @State var rating = 0.0
     @State var showingAlert = false
     @EnvironmentObject var dataManager: DataManager
     var body: some View {
@@ -43,10 +44,21 @@ struct CreateCarView: View {
                 }header: {
                     Text("NOTES")
                 }
+                
+                Section{
+                    VStack{
+                        Slider(value: $rating, in: 0...10, step: 1)
+                        Text("Rating: \(String(format: "%.0f", rating))/10")
+                    }
+                    
+                }header:{
+                    Text("MY RATING")
+                }
                 Section{
                     Button("Add Car") {
-                        dataManager.addCar(carModel: name, carNotes: notes, carLocation: location)
-                        dataManager.cars.append(Car(name: name, notes: notes, location: location))
+                        let date = Date.now
+                        dataManager.addCar(carModel: name, carNotes: notes, carLocation: location, rating: Int(rating), date: date)
+                        dataManager.cars.append(Car(name: name, notes: notes, location: location, rating: Int(rating), date: date, isFavourite: false))
                         showingAlert = true
                     }
                     .alert("Car saved", isPresented: $showingAlert){
