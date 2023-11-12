@@ -11,7 +11,7 @@ struct HomeView: View {
     var userId: String
     var body: some View {
  
-        NavigationView{
+        NavigationStack{
             ZStack{
                 BackgroundView()
                 VStack(spacing: 50) {
@@ -43,7 +43,7 @@ struct HomeView: View {
     
     var playButton: some View {
         
-        NavigationLink(destination: AddCarImageView().environmentObject(DataManager())) {
+        NavigationLink(destination: AddCarImageView()) {
             HStack{
                 Text("Spot A Car")
                 Image(systemName: "camera")
@@ -54,7 +54,7 @@ struct HomeView: View {
     
     var garageButton: some View {
         
-        NavigationLink(destination: GarageView().environmentObject(DataManager())) {
+        NavigationLink(destination: GarageView()) {
             HStack{
                 Text("My Garage")
                 Image(systemName: "car.fill")

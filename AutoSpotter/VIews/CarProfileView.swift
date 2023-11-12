@@ -8,34 +8,55 @@
 import SwiftUI
 
 struct CarProfileView: View {
+    @EnvironmentObject var dataManager: DataManager
     @State var currentCar: Car
+    @State var showingDelete = false
+    @Environment(\.dismiss) var dismiss
     var body: some View {
-        ScrollView{
-           
-            
-            VStack(alignment: .leading){
-                ZStack(alignment: .bottomTrailing) {
-                    Image("car")
-                        .resizable()
-                        .scaledToFit()
-                    
-                    favoriteIcon
-                        .onTapGesture {
-                            currentCar.isFavourite.toggle()
-                        }
-                }
-                locationView
-                    .padding()
-                notesView
-                    .padding()
-      
+        VStack{
+            Text(currentCar.name)
+                .font(Font.system(size: 30))
+                .foregroundColor(.gray)
+                .fontWeight(.black)
+            ZStack(alignment: .bottomTrailing) {
+                Image("car")
+                    .resizable()
+                    .scaledToFit()
+                
+                favoriteIcon
+                    .onTapGesture {
+                        currentCar.isFavourite.toggle()
+                        dataManager.updateCar(carModel: currentCar.name, isFav: currentCar.isFavourite)
+                    }
             }
-            Spacer(minLength: 200)
-            
-            favouriteButton
-                .buttonStyle(HomeButtonStyle())
+            ScrollView{
+               
+                
+                VStack(alignment: .leading){
+                    
+                    locationView
+                        .padding()
+                    notesView
+                        .padding()
+                    RatingView(rating: currentCar.rating)
+                        .padding()
+                    dateView
+                        .padding()
+                    deleteView
+                  
+                    
+          
+                }
+                .confirmationDialog("Are you sure you want to delete \(currentCar.name) from your garage", isPresented: $showingDelete) {
+                    Button("Delete"){
+                        dataManager.deleteCar(carModel: currentCar.name)
+                        dismiss()
+                    }
+                }
+               
+            }
         }
-        .navigationTitle(currentCar.name)
+        
     }
     
     @ViewBuilder var favoriteIcon: some View{
@@ -49,13 +70,6 @@ struct CarProfileView: View {
                     .strokeBorder(Color.white, lineWidth: 2)
             }
             .offset(x: -10, y: -10)
-    }
-    
-    var favouriteButton: some View {
-        
-        Button("Add Favourite"){
-            
-        }
     }
     
     var locationView: some View{
@@ -79,13 +93,62 @@ struct CarProfileView: View {
                 .fontWeight(.black)
             
             Text(currentCar.notes)
+            
 
+        }
+    }
+    
+    var dateView: some View{
+        Text("Date added: \(formattedDate(date: currentCar.date))")
+            .italic()
+            .foregroundStyle(Color.gray)
+    }
+    var deleteView: some View{
+        HStack{
+            Spacer()
+            Button("Delete Car"){
+                showingDelete = true
+               
+            }
+            .padding(10)
+            .foregroundColor(.white)
+            .font(.callout)
+            .background(Color.red)
+            .clipShape(Capsule(style: .circular))
+            Spacer()
+        }
+    }
+
+    
+}
+
+struct RatingView: View{
+    var rating: Int
+    var total = 10
+    var body: some View{
+        VStack(alignment: .leading){
+            Text("Rating")
+                .font(.title2)
+                .foregroundColor(.gray)
+                .fontWeight(.black)
+                .padding(.bottom)
+            HStack{
+                Spacer()
+                VStack{
+                    HStack{
+                        ForEach(1...total, id: \.self) { index in
+                            Image(systemName: (index <= rating) ? "star.fill" : "star")
+                                .foregroundColor(.yellow)
+                        }
+                    }
+                    Text("\(rating)/10")
+                        .padding(.vertical)
+                }
+                Spacer()
+            }
+           
+           
         }
     }
 }
 
-struct CarProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        CarProfileView(currentCar: mockCar().mockCar)
-    }
-}

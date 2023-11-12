@@ -23,18 +23,37 @@ struct AddCarImageView: View{
     @State private var selectedImage: UIImage? = nil
     @State private var isShowingImagePicker = false
     @State private var classificationLabel = ""
+    @State private var topThreeProbabilities: [String] = []
+    @State private var probabilityDict = [String: Double]()
+    @State private var evaluateTapped = false
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         
-            NavigationView{
+            NavigationStack{
                 ZStack{
                     BackgroundView()
                     VStack {
-                        
-                        Text(classificationLabel)
-                            .fontWeight(.bold)
-                            .font(.title2)
-                            .foregroundColor(.white)
+                        if(evaluateTapped){
+                            Text("Predictions")
+                        }else{
+                            Text("")
+                        }
+                        ForEach(topThreeProbabilities, id: \.self) { probability in
+                            Button(action: {
+                                if let colon = probability.firstIndex(of: ":") {
+                                            classificationLabel = String(probability[..<colon])
+                                        }
+                            }, label: {
+                                Text(probability)
+                            })
+                            .padding(.bottom, 5)
+                                
+                                
+                        }
+                        .foregroundColor(.white)
+
+                     
                         
                         
                         if let image = selectedImage {
@@ -49,47 +68,63 @@ struct AddCarImageView: View{
                                 .frame(width: 224, height: 224)
                         }
                         
+                        Text(classificationLabel    )
+                            .fontWeight(.bold)
+                            .font(.title2)
+                            .foregroundColor(.white)
+                        
 
-                        Button("Pick Image") {
-                            isShowingImagePicker = true
-                        }
-                        .buttonStyle(HomeButtonStyle())
-                      
-                        VStack{
+                       
+                        
+                        HStack{
+                            Button("Pick Image") {
+                                isShowingImagePicker = true
+                            }
+                            .buttonStyle(HomeButtonStyle())
+                            
                             Button("Evaluate"){
                                 let resizedImage = selectedImage!.resize(size: CGSize(width: 224, height: 224))
                                 let output = try? self.model.prediction(data: buffer(from: resizedImage)!)
                                 
                                 if let output = output{
                                     classificationLabel = output.classLabel
+                                    probabilityDict = output.prob
+                                    
+                                    let sortedProbabilities = probabilityDict.sorted { $0.value > $1.value }
+
+                                    topThreeProbabilities = sortedProbabilities.prefix(5).map { "\($0.key): \(String(format: "%.2f", $0.value*100))%" }
+                                    
                                 }
+                                evaluateTapped = true
                                 
                             }
                             .disabled(selectedImage == nil)
                             .opacity(selectedImage == nil ? 0.5: 1)
                             .buttonStyle(HomeButtonStyle())
-                            
-                            NavigationLink{
-                                CreateCarView(name: classificationLabel).environmentObject(DataManager())
-                            }label: {
-                                HStack{
-                                    Text("Add Car")
-                                    Image(systemName: "car.fill")
-                                }
-                                .fontWeight(.bold)
-                                .foregroundColor(.white)
-                               
-                               
-                            }
-                            .disabled(selectedImage == nil)
-                            .opacity(selectedImage == nil ? 0.5: 1)
-                            .offset(y: 170)
+                        }
 
-                        
+                        Spacer()
+                        NavigationLink{
+                            CreateCarView(name: classificationLabel).environmentObject(DataManager())
+                        }label: {
+                            HStack{
+                                Text("Add Car")
+                                Image(systemName: "car.fill")
+                            }
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                           
+                           
+                        }
+                        .disabled(selectedImage == nil)
+                        .opacity(selectedImage == nil ? 0.5: 1)
+                        .onDisappear{
+                            evaluateTapped = false
                         }
                      
                     }.sheet(isPresented: $isShowingImagePicker) {
                         ImagePicker(selectedImage: $selectedImage)
+                            
                 }
                
             
@@ -99,7 +134,7 @@ struct AddCarImageView: View{
 
     }
     
-
+    
     
     func buffer(from image: UIImage) -> CVPixelBuffer? {
       let attrs = [kCVPixelBufferCGImageCompatibilityKey: kCFBooleanTrue, kCVPixelBufferCGBitmapContextCompatibilityKey: kCFBooleanTrue] as CFDictionary

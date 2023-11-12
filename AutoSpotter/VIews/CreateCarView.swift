@@ -14,8 +14,9 @@ struct CreateCarView: View {
     @State var rating = 0.0
     @State var showingAlert = false
     @EnvironmentObject var dataManager: DataManager
+    @Environment(\.dismiss) var dismiss
     var body: some View {
-        NavigationView{
+        NavigationStack{
             Form{
                 Section{
                     HStack{
@@ -60,6 +61,7 @@ struct CreateCarView: View {
                         dataManager.addCar(carModel: name, carNotes: notes, carLocation: location, rating: Int(rating), date: date)
                         dataManager.cars.append(Car(name: name, notes: notes, location: location, rating: Int(rating), date: date, isFavourite: false))
                         showingAlert = true
+                        dismiss()
                     }
                     .alert("Car saved", isPresented: $showingAlert){
                         Button("OK", role: .cancel) {}

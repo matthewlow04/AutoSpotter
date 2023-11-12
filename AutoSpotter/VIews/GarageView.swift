@@ -9,29 +9,105 @@ import SwiftUI
 
 struct GarageView: View {
     @EnvironmentObject var dataManager: DataManager
+    @State var isShowingFavourites = false
     var body: some View {
-        NavigationView{
-            List(dataManager.cars, id: \.self){ car in
-                NavigationLink(destination: CarProfileView(currentCar: car)){
-                    HStack{
-                        VStack(alignment: .leading, spacing: 6){
-                            Text((car.name))
-                                .bold()
+        VStack{
+            NavigationStack{
+                if(isShowingFavourites){
+                    if(dataManager.cars.filter{$0.isFavourite}.isEmpty){
+                        List{
+                            Text("No Favourites")
+                                .font(Font.headline)
+                                .opacity(0.7)
+                                .italic()
+                                
+                        }
+                        .navigationTitle("Garage (Favourites)")
+                        .toolbar{
+                            ToolbarItem(placement: .primaryAction) {
+                                Button("Toggle Favourites"){
+                                    isShowingFavourites.toggle()
+                                }
+                            }
                         }
                         
-                        VStack(alignment: .trailing){
-                            Text("Spotted: ")
-                            Text("\(formattedDate(date: car.date))")
-                            
-                        }
-                        .foregroundStyle(Color.gray)
-                        .italic()
+                        
                        
+                               
+                    }else{
+                        List(dataManager.cars.filter{$0.isFavourite}, id: \.self){ car in
+                            NavigationLink(destination: CarProfileView(currentCar: car)){
+                                HStack{
+                                    VStack(alignment: .leading, spacing: 6){
+                                        Text((car.name))
+                                            .bold()
+                                    }
+                                    Spacer()
+                                    VStack(alignment: .trailing){
+                                        Text("Spotted: ")
+                                        Text("\(formattedDate(date: car.date))")
+                                        
+                                    }
+                                    .foregroundStyle(Color.gray)
+                                    .italic()
+                                   
+                                }
+                            }
+                        }
+                        .navigationTitle("Garage (Favourites)")
+                       
+                        .toolbar{
+                            ToolbarItem(placement: .primaryAction) {
+                                Button("Toggle Favourites"){
+                                    isShowingFavourites.toggle()
+                                }
+                            }
+                        }
                     }
+                   
+                }else{
+                    List(dataManager.cars, id: \.self){ car in
+                        NavigationLink(destination: CarProfileView(currentCar: car)){
+                            HStack{
+                                VStack(alignment: .leading, spacing: 6){
+                                    Text((car.name))
+                                        .bold()
+                                }
+                                Spacer()
+                                VStack(alignment: .trailing){
+                                    Text("Spotted: ")
+                                    Text("\(formattedDate(date: car.date))")
+                                    
+                                }
+                                .foregroundStyle(Color.gray)
+                                .italic()
+                               
+                            }
+                        }
+                    }
+                    .navigationTitle("Garage")
+                    .toolbar{
+                        ToolbarItem(placement: .primaryAction) {
+                            Button("Toggle Favourites"){
+                                isShowingFavourites = true
+                            }
+                               
+                        }
+                    }
+                
                 }
+               
+               
             }
-            .navigationTitle("Garage")
         }
+        .onAppear{
+            dataManager.fetchCars()
+        }
+        .onDisappear{
+            dataManager.fetchCars()
+        }
+        
+        
     }
 }
 

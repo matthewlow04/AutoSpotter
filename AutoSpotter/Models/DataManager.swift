@@ -10,9 +10,6 @@ import Firebase
 
 class DataManager: ObservableObject{
     @Published var cars: [Car] = []
-    init(){
-        fetchCars()
-    }
     
     func fetchCars(){
         cars.removeAll()
@@ -39,6 +36,8 @@ class DataManager: ObservableObject{
                     self.cars.append(car)
                 }
             }
+            
+            print("fetch")
         }
     }
     
@@ -51,5 +50,30 @@ class DataManager: ObservableObject{
             }
             
         }
+    }
+    
+    func updateCar(carModel: String, isFav: Bool){
+        let db = Firestore.firestore()
+        let ref = db.collection("Cars").document(carModel)
+        
+        ref.updateData(["isFavourite" : isFav]){ error in
+            if let error = error{
+                print(error.localizedDescription)
+            }
+            
+        }
+      
+    }
+    
+    func deleteCar(carModel: String){
+        let db = Firestore.firestore()
+        let ref = db.collection("Cars").document(carModel)
+        
+        ref.delete { error in
+            if let error = error {
+                print("Error deleting: \(error.localizedDescription)")
+            }
+        }
+        fetchCars()
     }
 }
